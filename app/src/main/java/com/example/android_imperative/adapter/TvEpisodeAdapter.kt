@@ -10,7 +10,7 @@ import com.example.android_imperative.databinding.ItemTvEpisodeBinding
 import com.example.android_imperative.databinding.ItemTvShortBinding
 import com.example.android_imperative.model.Episode
 
-class TvEpisodeAdapter(var activity: DetailsActivity, var items: ArrayList<Episode>) : BaseAdapter() {
+class TvEpisodeAdapter(var activity: DetailsActivity, var items: List<Episode>) : BaseAdapter() {
 
     override fun getItemCount(): Int {
         return items.size
@@ -25,10 +25,10 @@ class TvEpisodeAdapter(var activity: DetailsActivity, var items: ArrayList<Episo
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val tvShort = items[position]
         if (holder is TvEpisodeHolder) {
-            holder.binding.tvEpisode.text= tvShort.episode.toString()
+            holder.binding.tvEpisode.text= "Episode :"+tvShort.episode.toString()
             holder.binding.tvEpisodeInfoName.text=tvShort.name
-            holder.binding.tvAirData.text=tvShort.airDate
-            holder.binding.tvAirDataInfo.text= tvShort.season.toString()
+            holder.binding.tvAirDataInfo.text="Air Date: "+ tvShort.air_date.toString()
+            holder.binding
         }
     }
 

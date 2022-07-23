@@ -73,22 +73,22 @@ class MainActivity : AppCompatActivity() {
         /**
          * retrofit related
          */
-        viewModel.tvShowsFromApi.observe(this, {
+        viewModel.tvShowsFromApi.observe(this) {
             Logger.d(TAG, it.size.toString())
             adapter.setNewTVShows(it)
 
-        })
-        viewModel.errorMessage.observe(this, {
+        }
+        viewModel.errorMessage.observe(this) {
             Logger.d(TAG, it.toString())
-        })
-        viewModel.isLoading.observe(this, {
+        }
+        viewModel.isLoading.observe(this) {
             Logger.d(TAG, it.toString())
             if (it) {
                 binding.pbLoading.visibility = View.VISIBLE
             } else {
                 binding.pbLoading.visibility = View.GONE
             }
-        })
+        }
     }
 
     fun callDetailsActivity(tvShow: TvShow, sharedImageView: ImageView) {

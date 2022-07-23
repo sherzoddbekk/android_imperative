@@ -5,8 +5,8 @@ import android.content.Context
 import com.example.android_imperative.db.Appdatabase
 import com.example.android_imperative.db.TVshowDao
 import com.example.android_imperative.network.Server.IS_TESTER
-import com.example.android_imperative.network.Server.SERVER_DEVELOPMENT
-import com.example.android_imperative.network.Server.SERVER_PRODUCTION
+import com.example.android_imperative.network.Server.getDevelopment
+import com.example.android_imperative.network.Server.getProduction
 import com.example.android_imperative.retrofit.TVShowsService
 import dagger.Module
 import dagger.Provides
@@ -26,8 +26,8 @@ class AppModule {
 
     @Provides
     fun  server():String{
-        if(IS_TESTER)return SERVER_DEVELOPMENT
-        return SERVER_PRODUCTION
+        if(IS_TESTER)return getDevelopment()
+        return getProduction()
     }
 
     @Provides

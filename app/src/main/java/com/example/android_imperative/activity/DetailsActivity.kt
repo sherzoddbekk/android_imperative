@@ -98,39 +98,38 @@ class DetailsActivity : BaseActivity() {
         Log.d("@@@@@", "refreshAdapterEpisode: ")
     }
 
-    private fun getAllSeasons(tvShow: Details){
-        val map = TreeMap<String, ArrayList<Episode>>()
-
-        Logger.d("@@@", tvShow.episodes.toString())
-        for (i in tvShow.episodes){
-            val items = map.getOrDefault("Season ${i.season.toString()}", ArrayList())
-            items.add(i)
-            map.put("Season ${i.season.toString()}", items)
-        }
-
-        for(k in map.keys){
-            binding.tabSeason.addTab(binding.tabSeason.newTab().setText(k))
-        }
-
-        TvEpisodeAdapter
-        TvEpisodeAdapter.submitList(map["Season ${tvShow.episodes[0].season}"])
-
-        binding.tabSeason.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                episodesAdapter.submitList(map[tab?.text])
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-
-        })
-
-        Logger.d("@@@", "Map: ${map.size}")
-
-    }
+//    private fun getAllSeasons(tvShow: Details){
+//        val map = TreeMap<String, ArrayList<Episode>>()
+//
+//        Logger.d("@@@", tvShow.episodes.toString())
+//        for (i in tvShow.episodes){
+//            val items = map.getOrDefault("Season ${i.season.toString()}", ArrayList())
+//            items.add(i)
+//            map.put("Season ${i.season.toString()}", items)
+//        }
+//
+//        for(k in map.keys){
+//            binding.tabSeason.addTab(binding.tabSeason.newTab().setText(k))
+//        }
+//
+//        TvEpisodeAdapter.submitList(map["Season ${tvShow.episodes[0].season}"])
+//
+//        binding.tabSeason.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+//            override fun onTabSelected(tab: TabLayout.Tab?) {
+//                episodesAdapter.submitList(map[tab?.text])
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab?) {
+//
+//            }
+//
+//            override fun onTabReselected(tab: TabLayout.Tab?) {
+//
+//            }
+//
+//        })
+//
+//        Logger.d("@@@", "Map: ${map.size}")
+//
+//    }
 }
